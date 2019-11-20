@@ -4,4 +4,5 @@ export interface Recipe {
   readyInMinutes: number;
   image: string;
   imageUrls: string[];
+  servings: number;
 }
