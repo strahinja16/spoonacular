@@ -1,28 +1,19 @@
 import axios from 'axios';
+import { SPOONACULAR_API_KEY, SPOONACULAR_URL } from './Constants';
 
-// @ts-ignore
-const { API_URL } = process.env;
-
-// @ts-ignore
-const development = process.env.NODE_ENV === 'development';
-
+console.log(process.env);
 const instance = axios.create({
-  baseURL: `${API_URL}api/`,
+  baseURL: `https://${SPOONACULAR_URL}`,
   headers: {
-    Accept: 'application/json',
     'Content-Type': 'application/json',
+    'x-rapidapi-host': `${SPOONACULAR_URL}`,
+    'x-rapidapi-key': `${SPOONACULAR_API_KEY}`,
   },
 });
 
 instance.interceptors.request.use(
   (config: any) => {
-    const authToken = localStorage.getItem('_token');
-
-    if (authToken) {
-      config.headers.Authorization = authToken;
-    }
-
-    if (development) {
+    if (process.env.NODE_ENV === 'development') {
       console.log(`[${config.method}]: ${config.url}`);
       if (config.data) {
         console.log('Data: ', config.data);
@@ -32,7 +23,7 @@ instance.interceptors.request.use(
     return config;
   },
   (error: any) => {
-    if (development) {
+    if (process.env.NODE_ENV === 'development') {
       console.error(error);
     }
     return Promise.reject(error);
