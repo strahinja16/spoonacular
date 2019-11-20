@@ -2,14 +2,12 @@ import React, { FC } from 'react';
 import { NavLink } from 'react-router-dom';
 import './Header.scss';
 
-interface Props {
-  activeItem: string;
-}
-
-const Header: FC<Props> = ({ activeItem }) => {
+const Header: FC = () => {
   return (
     <nav>
-      <NavLink to="/">Home</NavLink>
+      <NavLink className="navLink" to="/">
+        Home
+      </NavLink>
     </nav>
   );
 };

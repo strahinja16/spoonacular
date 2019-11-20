@@ -1,22 +1,14 @@
 import React, { FC } from 'react';
-import { withRouter } from 'react-router-dom';
-import Header from '../Header';
-
-interface Props {
-  location: {
-    pathname: string;
-  };
-}
+import Header from '../Header/Header';
 
 // @ts-ignore
-const AppLayout: FC<Props> = ({ children, location }) => {
+const AppLayout: FC = ({ children }) => {
   return (
     <div>
-      <Header activeItem={location.pathname} />
+      <Header />
       <main>{children}</main>
     </div>
   );
 };
 
-// @ts-ignore
-export default withRouter(AppLayout);
+export default AppLayout;

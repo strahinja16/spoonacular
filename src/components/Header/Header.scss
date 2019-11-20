@@ -1,3 +1,20 @@
+@import '../../ui.scss';
+
 nav {
   height: 50px;
+  background-color: $darkGreen;
+  display: flex;
+  flex-direction: row-reverse;
+
+  .navLink {
+    padding: 10px;
+    color: $light;
+
+    text-decoration: none;
+    font-size: 20px;
+  }
+}
+
+nav:first-child {
+  padding-right: 20px;
 }
