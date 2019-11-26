@@ -1,15 +1,30 @@
 import { Router, Request, Response } from 'express';
 import redisClient from '../../services/redis';
+import fetch from '../../services/fetch';
 
 const router = Router();
 
 router.get('/', (req: Request, res: Response) => {
   redisClient.get('cached-recipes', (err, data) => {
-    if (err) {
-      return res.status(400).send( { error: err.toString() });
-    }
+      if (err) {
+        return res.status(400).send( { error: err.message });
+      }
 
-    return res.send({ data: JSON.parse(data) });
+      const cachedRecipes = JSON.parse(data);
+      if (cachedRecipes.recipes) {
+        return res.send({ data: cachedRecipes });
+      }
+
+      const query = '?ids=426,987,319';
+      fetch('/recipes/informationBulk', query)
+        .then(res => res.json())
+        .then((recipes) => {
+          redisClient.set('cached-recipes', JSON.stringify({ recipes }));
+          return res.send({ data: recipes });
+        })
+        .catch((err) => {
+          return res.status(400).send({ message: err.message });
+        });
   });
 });
 

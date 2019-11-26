@@ -1,6 +1,6 @@
-import App from './app'
-
-import * as bodyParser from 'body-parser'
+import App from './app';
+import * as bodyParser from 'body-parser';
+require('dotenv').config();
 
 import RedisRouter from './routes/redis';
 

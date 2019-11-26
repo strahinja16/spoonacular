@@ -2,6 +2,6 @@
 import * as redis from 'redis';
 
 export default redis.createClient({
-  port: 6379,
-  host: 'redis'
+  port: Number.parseInt(process.env.REDIS_PORT),
+  host: process.env.REDIS_HOST
 });
