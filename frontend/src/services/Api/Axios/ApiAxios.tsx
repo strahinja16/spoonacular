@@ -1,12 +1,10 @@
 import axios from 'axios';
-import { SPOONACULAR_API_KEY, SPOONACULAR_URL } from './Constants';
+import { API_URL } from './Constants';
 
 const instance = axios.create({
-  baseURL: `https://${SPOONACULAR_URL}`,
+  baseURL: `http://${API_URL}`,
   headers: {
     'Content-Type': 'application/json',
-    'x-rapidapi-host': `${SPOONACULAR_URL}`,
-    'x-rapidapi-key': `${SPOONACULAR_API_KEY}`,
   },
 });
 

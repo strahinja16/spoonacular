@@ -1,0 +1,63 @@
+@import '../../ui';
+
+.showcase {
+  background:url('../../images/showcase.jpg') no-repeat center center;
+  background-size: cover;
+  height: calc(100vh - 50px);
+
+  .container{
+    margin:auto;
+
+    .row {
+      height: 700px;
+    }
+
+    .primaryText {
+      color: $darkGreen;
+    }
+
+    h1 {
+      font-size:50px;
+      margin:0;
+      padding-bottom:20px;
+    }
+
+    p {
+      color: #ccc;
+      margin: auto;
+    }
+
+    .showcaseContent {
+      margin: auto !important;
+      background: #333 !important;
+      color: #fff !important;
+      border-radius: 90px !important;
+      padding: 40px !important;
+      opacity: 0.9 !important;
+    }
+    img {
+      width: 100%;
+    }
+
+  }
+}
+
+@media(max-width:800px){
+  .showcase {
+    .container {
+      h1 {
+        font-size: 27px;
+      }
+    }
+  }
+}
+
+@media(max-width:500px){
+  .showcase {
+    .container {
+      .showcaseContent {
+        padding: 40px 10px !important;
+      }
+    }
+  }
+}

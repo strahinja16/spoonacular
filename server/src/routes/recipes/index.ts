@@ -30,5 +30,5 @@ router.get('/', (req: Request, res: Response) => {
 
 export default {
   routes: router,
-  path: '/redis'
+  path: '/recipes'
 };
