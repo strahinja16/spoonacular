@@ -27,7 +27,8 @@
     "redux": "^4.0.1",
     "redux-devtools-extension": "^2.13.8",
     "redux-saga": "^1.0.2",
-    "typescript": "3.7.2"
+    "typescript": "3.7.2",
+    "use-react-router": "^1.0.7"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -47,7 +48,7 @@
   },
   "lint-staged": {
     "*.{ts,tsx}": [
-      "tslint -c tslint.json 'src/**/*.{ts,tsx}'"
+      "tslint --fix -c tslint.json 'src/**/*{.ts,.tsx}'"
     ]
   },
   "browserslist": {

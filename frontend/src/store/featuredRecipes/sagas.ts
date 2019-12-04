@@ -5,11 +5,9 @@ import { FeaturedRecipesActionTypes } from './action-types';
 
 export function* getFeaturedRecipes() {
   try {
-    const {
-      data: { recipes },
-    } = yield call(apiService.getRecipeInformationBulk);
+    const payload = yield call(apiService.getRecipeInformationBulk);
 
-    yield put(setFeaturedRecipes(recipes));
+    yield put(setFeaturedRecipes(payload.data));
   } catch (e) {
     yield put(setFeaturedRecipesError(e.toString()));
   }

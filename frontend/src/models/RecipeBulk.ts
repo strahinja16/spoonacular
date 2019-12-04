@@ -44,11 +44,13 @@ export interface RecipeBulk {
   cheap: boolean;
   veryPopular: boolean;
   sustainable: boolean;
-  weightWatcherSmartPoints: number;
-  gaps: string;
   lowFodmap: boolean;
   ketogenic: boolean;
   whole30: boolean;
+  // tags
+
+  weightWatcherSmartPoints: number;
+  gaps: string;
   servings: number;
   sourceUrl: string;
   spoonacularSourceUrl: string;

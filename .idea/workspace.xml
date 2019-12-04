@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c3cc962b-20e0-4a50-89a1-1f4c28a441bd" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/Strahinja.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/.env" beforeDir="false" afterPath="$PROJECT_DIR$/server/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/routes/redis/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/routes/recipes/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/routes/recipes/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/routes/recipes/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/server.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/server/yarn.lock" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,7 +22,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="C:/ECSNew/Deployments/PTHG/7.1/Sources/Test/Web/pthg-barcode-scan-module" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/frontend/src/components/RecipeDetailedPreparation" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -37,12 +36,14 @@
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/server/node_modules/typescript/lib" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Spoonacular\spoonacular\frontend\src\store\showcaseRecipes" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Spoonacular\spoonacular\frontend\src\store\featuredRecipes" />
       <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Spoonacular\spoonacular\frontend\src\components\RecipeDetailedPreparation" />
+      <recent name="C:\Spoonacular\spoonacular\frontend\src\store\detailedRecipe" />
+      <recent name="C:\Spoonacular\spoonacular\frontend\src\store\showcaseRecipes" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -72,7 +73,8 @@
       <workItem from="1574615633935" duration="2483000" />
       <workItem from="1574757387584" duration="3998000" />
       <workItem from="1574842757824" duration="508000" />
-      <workItem from="1575380349401" duration="8324000" />
+      <workItem from="1575380349401" duration="8445000" />
+      <workItem from="1575449573573" duration="11720000" />
     </task>
     <servers />
   </component>

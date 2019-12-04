@@ -8,7 +8,7 @@ const Showcase = () => (
       <Row className="row" center="xs" middle="xs">
         <Col xs={10} sm={10} md={10} lg={7} className="showcaseContent">
           <h1>
-            Welcome to <span className="primaryText">Foodelicious</span>
+            Welcome to <span className="primaryText">Spoonacular</span>
           </h1>
           <p>Food recipes guide</p>
         </Col>
