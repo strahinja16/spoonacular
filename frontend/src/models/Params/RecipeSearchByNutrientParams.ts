@@ -6,5 +6,5 @@ export interface RecipeSearchByNutrientParams {
   maxCalories?: number;
   maxCarbs?: number;
   maxFat?: number;
-  maxProtein?: string;
+  maxProtein?: number;
 }

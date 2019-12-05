@@ -5,6 +5,9 @@ import './Header.scss';
 const Header: FC = () => {
   return (
     <nav>
+      <NavLink className="navLink" to="/search">
+        Search
+      </NavLink>
       <NavLink className="navLink" to="/featured">
         Featured
       </NavLink>

@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
+import useReactRouter from 'use-react-router';
 import { RecipeBulk } from '../../models/RecipeBulk';
 import RecipeBulkCard from '../RecipeBulkCard/RecipeBulkCard';
-import useReactRouter from 'use-react-router';
 import './styles.scss';
 
 export interface RecipeBulkComponentProps {
@@ -9,7 +9,9 @@ export interface RecipeBulkComponentProps {
 }
 
 const RecipeBulkComponent: FC<RecipeBulkComponentProps> = ({ recipe }) => {
-  const { history: { push } } = useReactRouter();
+  const {
+    history: { push },
+  } = useReactRouter();
 
   const onDetailedPreparationClick = () => {
     push(`/recipe/${recipe.id}`);

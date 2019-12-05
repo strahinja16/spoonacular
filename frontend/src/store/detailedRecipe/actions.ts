@@ -17,8 +17,4 @@ export interface SetDetailedRecipeError extends Action {
   type: DetailedRecipesActionTypes.SET_DETAILED_RECIPE_ERROR;
 }
 
-
-export type DetailedRecipeActions =
-  | GetDetailedRecipe
-  | SetDetailedRecipe
-  | SetDetailedRecipeError;
+export type DetailedRecipeActions = GetDetailedRecipe | SetDetailedRecipe | SetDetailedRecipeError;

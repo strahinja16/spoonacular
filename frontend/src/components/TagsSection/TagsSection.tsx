@@ -9,14 +9,16 @@ export interface TagsSectionProps {
 const TagsSection: FC<TagsSectionProps> = ({ recipe }) => {
   const tags = Object.keys(recipe).filter(key => {
     const el = (recipe as any)[key];
-    return typeof(el) === 'boolean' && el;
+    return typeof el === 'boolean' && el;
   });
 
   return (
     <section className="tagsSection">
-        {tags.map(tag => (
-          <span key={tag} className="tag">{tag}</span>
-        ))}
+      {tags.map(tag => (
+        <span key={tag} className="tag">
+          {tag}
+        </span>
+      ))}
     </section>
   );
 };

@@ -14,13 +14,19 @@ const RecipeBulkCard: FC<RecipeBulkCardProps> = ({ recipe }) => (
     <div className="recipeInfo">
       <div>{recipe.title}</div>
       <Row>
-        <Col xs={4} sm={4} md={4} lg={4}>{recipe.readyInMinutes} minutes</Col>
-        <Col xs={4} sm={4} md={4} lg={4}>{recipe.servings} servings</Col>
-        <Col xs={4} sm={4} md={4} lg={4}>${recipe.pricePerServing} per serving</Col>
+        <Col xs={4} sm={4} md={4} lg={4}>
+          {recipe.readyInMinutes} minutes
+        </Col>
+        <Col xs={4} sm={4} md={4} lg={4}>
+          {recipe.servings} servings
+        </Col>
+        <Col xs={4} sm={4} md={4} lg={4}>
+          ${recipe.pricePerServing} per serving
+        </Col>
       </Row>
     </div>
     <div className="recipeTags">
-      <TagsSection recipe={recipe}/>
+      <TagsSection recipe={recipe} />
     </div>
   </section>
 );

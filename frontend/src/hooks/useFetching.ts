@@ -6,9 +6,7 @@ export const useFetching = (fetchActionCreator: ActionCreator<Action>, param?: a
   const dispatch = useDispatch();
 
   useEffect(() => {
-    param
-      ? dispatch(fetchActionCreator(param))
-      : dispatch(fetchActionCreator());
+    param ? dispatch(fetchActionCreator(param)) : dispatch(fetchActionCreator());
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

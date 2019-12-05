@@ -1,6 +1,6 @@
 import { RecipeBulk } from '../../models/RecipeBulk';
 import { DetailedRecipesActionTypes } from './action-types';
-import { SetDetailedRecipeError, SetDetailedRecipe, DetailedRecipeActions } from './actions';
+import { DetailedRecipeActions, SetDetailedRecipe, SetDetailedRecipeError } from './actions';
 
 export interface DetailedRecipeState {
   detailedRecipe: RecipeBulk | null;
