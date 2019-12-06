@@ -1,7 +1,8 @@
 import React, { FC, useCallback, useState } from 'react';
 import { Col, Row } from 'react-flexbox-grid';
-import useReactRouter from 'use-react-router';
+import { useHistory } from 'react-router-dom';
 import { RecipeSearchByNutrientParams } from '../../models/Params/RecipeSearchByNutrientParams';
+import { RecipeSearchType } from '../../models/RecipeSearchType';
 import spoonacularService from '../../services/Api/SpoonacularService';
 import './styles.scss';
 
@@ -9,11 +10,8 @@ import './styles.scss';
 export interface SearchRecipeByNutritionFormProps {}
 
 const SearchRecipeByNutritionForm: FC<SearchRecipeByNutritionFormProps> = () => {
-  const {
-    history: { push },
-  } = useReactRouter();
+  const history = useHistory();
   const [error, setError] = useState('');
-  const [loading, setLoading] = useState(false);
   const [inputValues, setInputValues] = useState({
     maxCalories: '',
     maxCarbs: '',
@@ -34,28 +32,9 @@ const SearchRecipeByNutritionForm: FC<SearchRecipeByNutritionFormProps> = () => 
     [inputValues]
   );
 
-  const handleSuccess = () => {
-    setLoading(true);
-    const payload: any = {};
-
-    // eslint-disable-next-line array-callback-return
-    Object.keys(inputValues).map(key => {
-      payload[key] = Number((inputValues as any)[key]);
-    });
-
-    spoonacularService
-      .searchRecipeByNutrient(payload as RecipeSearchByNutrientParams)
-      .then(() => {
-        setLoading(false);
-        push('/');
-      })
-      .catch((e: any) => {
-        setLoading(false);
-        setError(e.toString());
-      });
-  };
-
   const validateForm = (): boolean => {
+    Object.values(inputValues).forEach(val => !isNaN(Number(val)));
+
     return (
       Number(inputValues.minFat) <= Number(inputValues.maxFat) &&
       Number(inputValues.minCarbs) <= Number(inputValues.maxCarbs) &&
@@ -77,6 +56,20 @@ const SearchRecipeByNutritionForm: FC<SearchRecipeByNutritionFormProps> = () => 
     }
   };
 
+  const handleSuccess = () => {
+    const payload: any = {};
+
+    // eslint-disable-next-line array-callback-return
+    Object.keys(inputValues).map(key => {
+      payload[key] = Number((inputValues as any)[key]);
+    });
+
+    history.push({
+      pathname: '/queried-recipes',
+      state: { inputValues, searchType: RecipeSearchType.BY_NUTRITION },
+    });
+  };
+
   return (
     <section className="searchRecipeByNutritionFormSection">
       <div className="container">
@@ -88,8 +81,8 @@ const SearchRecipeByNutritionForm: FC<SearchRecipeByNutritionFormProps> = () => 
                 <label htmlFor="minCalories">Minimum calories</label>
                 <input
                   onChange={handleOnChange}
-                  type="number"
-                  placeholder="250"
+                  type="text"
+                  placeholder="100"
                   name="minCalories"
                   value={inputValues.minCalories}
                 />
@@ -98,8 +91,8 @@ const SearchRecipeByNutritionForm: FC<SearchRecipeByNutritionFormProps> = () => 
                 <label htmlFor="maxCalories">Maximum calories</label>
                 <input
                   onChange={handleOnChange}
-                  type="number"
-                  placeholder="250"
+                  type="text"
+                  placeholder="500"
                   name="maxCalories"
                   value={inputValues.maxCalories}
                 />
@@ -108,8 +101,8 @@ const SearchRecipeByNutritionForm: FC<SearchRecipeByNutritionFormProps> = () => 
                 <label htmlFor="minProtein">Minimum protein</label>
                 <input
                   onChange={handleOnChange}
-                  type="number"
-                  placeholder="250"
+                  type="text"
+                  placeholder="20"
                   name="minProtein"
                   value={inputValues.minProtein}
                 />
@@ -118,8 +111,8 @@ const SearchRecipeByNutritionForm: FC<SearchRecipeByNutritionFormProps> = () => 
                 <label htmlFor="maxProtein">Maximum protein</label>
                 <input
                   onChange={handleOnChange}
-                  type="number"
-                  placeholder="250"
+                  type="text"
+                  placeholder="120"
                   name="maxProtein"
                   value={inputValues.maxProtein}
                 />
@@ -128,8 +121,8 @@ const SearchRecipeByNutritionForm: FC<SearchRecipeByNutritionFormProps> = () => 
                 <label htmlFor="minCarbs">Minimum carbs</label>
                 <input
                   onChange={handleOnChange}
-                  type="number"
-                  placeholder="250"
+                  type="text"
+                  placeholder="30"
                   name="minCarbs"
                   value={inputValues.minCarbs}
                 />
@@ -138,8 +131,8 @@ const SearchRecipeByNutritionForm: FC<SearchRecipeByNutritionFormProps> = () => 
                 <label htmlFor="maxCarbs">Maximum carbs</label>
                 <input
                   onChange={handleOnChange}
-                  type="number"
-                  placeholder="250"
+                  type="text"
+                  placeholder="50"
                   name="maxCarbs"
                   value={inputValues.maxCarbs}
                 />
@@ -148,8 +141,8 @@ const SearchRecipeByNutritionForm: FC<SearchRecipeByNutritionFormProps> = () => 
                 <label htmlFor="minFat">Minimum fat</label>
                 <input
                   onChange={handleOnChange}
-                  type="number"
-                  placeholder="250"
+                  type="text"
+                  placeholder="5"
                   name="minFat"
                   value={inputValues.minFat}
                 />
@@ -158,13 +151,13 @@ const SearchRecipeByNutritionForm: FC<SearchRecipeByNutritionFormProps> = () => 
                 <label htmlFor="maxFat">Maximum fat</label>
                 <input
                   onChange={handleOnChange}
-                  type="number"
-                  placeholder="250"
+                  type="text"
+                  placeholder="15"
                   name="maxFat"
                   value={inputValues.maxFat}
                 />
               </div>
-              <button disabled={loading} type="submit" onSubmit={handleSubmit} name="button">
+              <button type="submit" onSubmit={handleSubmit} name="button">
                 Search
               </button>
             </form>

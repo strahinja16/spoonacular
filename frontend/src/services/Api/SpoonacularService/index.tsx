@@ -23,7 +23,7 @@ export class SpoonacularService {
       .catch(e => console.log(e.toString()));
   }
 
-  public searchRecipe(params: RecipeSearchParams): Promise<AxiosResponse<Recipe[]>> {
+  public searchRecipe(params: RecipeSearchParams): Promise<Recipe[]> {
     return axios
       .get('/recipes/search', {
         params,
@@ -32,9 +32,7 @@ export class SpoonacularService {
       .catch(e => console.log(e.toString()));
   }
 
-  public searchRecipeByNutrient(
-    params: RecipeSearchByNutrientParams
-  ): Promise<AxiosResponse<RecipeByNutrient[]>> {
+  public searchRecipeByNutrient(params: RecipeSearchByNutrientParams): Promise<RecipeByNutrient[]> {
     return axios
       .get('/recipes/findByNutrients', {
         params,

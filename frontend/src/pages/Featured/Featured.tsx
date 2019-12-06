@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { useSelector } from 'react-redux';
 import FeaturedRecipes from '../../components/FeaturedRecipes/FeaturedRecipes';
-import Loading from '../../components/Loading/Loader';
+import Loading from '../../components/Loading/Loading';
 import { useFetching } from '../../hooks/useFetching';
 import { getFeaturedRecipes } from '../../store/featuredRecipes/action-creators';
 import { AppState } from '../../store/reducer';

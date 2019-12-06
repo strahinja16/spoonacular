@@ -1,9 +1,9 @@
 import React, { FC, useState } from 'react';
 import { Option } from 'react-dropdown';
+import BasicRecipeSearchForm from '../../components/BasicRecipeSearchForm/BasicRecipeSearchForm';
 import RecipeSearchDropdown, {
   recipeSearchOptions,
 } from '../../components/RecipeSearchDropdown/RecipeSearchDropdown';
-import BasicRecipeSearchForm from '../../components/BasicRecipeSearchForm/BasicRecipeSearchForm';
 import SearchRecipeByNutritionForm from '../../components/SearchRecipeByNutritionForm/SearchRecipeByNutritionForm';
 
 export enum SearchForm {

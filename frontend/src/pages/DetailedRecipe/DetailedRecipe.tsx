@@ -1,7 +1,7 @@
 import React from 'react';
 import { Col, Row } from 'react-flexbox-grid';
 import { useSelector } from 'react-redux';
-import useReactRouter from 'use-react-router';
+import { useRouteMatch } from 'react-router-dom';
 import RecipeAnalyzedInstructions from '../../components/RecipeAnalyzedInstructions/RecipeAnalyzedInstructions';
 import RecipeBulkCard from '../../components/RecipeBulkCard/RecipeBulkCard';
 import { useFetching } from '../../hooks/useFetching';
@@ -9,12 +9,8 @@ import { getDetailedRecipe } from '../../store/detailedRecipe/action-creators';
 import { AppState } from '../../store/reducer';
 
 const DetailedRecipe = () => {
-  const {
-    match: {
-      params: { id },
-    },
-  } = useReactRouter();
-  useFetching(getDetailedRecipe, id);
+  const { params } = useRouteMatch();
+  useFetching(getDetailedRecipe, params.id);
 
   const detailedRecipe = useSelector((state: AppState) => state.detailedRecipe.detailedRecipe);
   const error = useSelector((state: AppState) => state.detailedRecipe.error);

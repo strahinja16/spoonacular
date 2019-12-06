@@ -1,18 +1,15 @@
 import React, { FC, useCallback, useState } from 'react';
 import { Col, Row } from 'react-flexbox-grid';
-import useReactRouter from 'use-react-router';
-import spoonacularService from '../../services/Api/SpoonacularService';
+import { useHistory } from 'react-router-dom';
 import './styles.scss';
+import { RecipeSearchType } from '../../models/RecipeSearchType';
 
 // tslint:disable-next-line:no-empty-interface
 export interface BasicRecipeSearchFormProps {}
 
 const BasicRecipeSearchForm: FC<BasicRecipeSearchFormProps> = () => {
-  const {
-    history: { push },
-  } = useReactRouter();
+  const history = useHistory();
   const [error, setError] = useState('');
-  const [loading, setLoading] = useState(false);
   const [inputValues, setInputValues] = useState({
     diet: '',
     excludeIngredients: '',
@@ -34,18 +31,10 @@ const BasicRecipeSearchForm: FC<BasicRecipeSearchFormProps> = () => {
   };
 
   const handleSuccess = () => {
-    setLoading(true);
-
-    spoonacularService
-      .searchRecipe(inputValues)
-      .then(() => {
-        setLoading(false);
-        push('/');
-      })
-      .catch((e: any) => {
-        setLoading(false);
-        setError(e.toString());
-      });
+    history.push({
+      pathname: '/queried-recipes',
+      state: { inputValues, searchType: RecipeSearchType.BASIC },
+    });
   };
 
   const handleSubmit = (e: any) => {
@@ -108,7 +97,7 @@ const BasicRecipeSearchForm: FC<BasicRecipeSearchFormProps> = () => {
                   value={inputValues.intolerances}
                 />
               </div>
-              <button disabled={loading} type="submit" onSubmit={handleSubmit} name="button">
+              <button type="submit" onSubmit={handleSubmit} name="button">
                 Search
               </button>
             </form>
