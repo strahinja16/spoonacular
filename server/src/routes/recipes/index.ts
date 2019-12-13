@@ -11,11 +11,10 @@ router.get('/', (req: Request, res: Response) => {
       }
 
       const cachedRecipes = JSON.parse(data);
-      if (cachedRecipes.recipes) {
+      if (cachedRecipes && cachedRecipes.recipes) {
         return res.send({ data: cachedRecipes.recipes });
       }
 
-      console.log('here');
       const query = '?ids=426,987,316,413,521,155';
       fetch('/recipes/informationBulk', query)
         .then(res => res.json())

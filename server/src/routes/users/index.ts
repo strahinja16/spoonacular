@@ -9,7 +9,11 @@ router.get('/:id/recipes', middleware('auth'), async (req: Request, res: Respons
   const user = await db.User.findById(req.params.id);
   if (!user) return res.status(404).send({ message: 'User not found.'});
 
-  const recipes = await user.getRecipes();
+  const recipes = await db.Recipe.findAll({
+    where: {
+      UserId: user.id
+    }
+  });
   if (!recipes) return res.status(404).send({ message: 'Recipes not found.'});
 
   return res.send({ data: recipes });

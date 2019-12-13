@@ -26,10 +26,13 @@ export const RecipeFactory = (sequelize: Sequelize.Sequelize, DataTypes: Sequeli
     image: { type: Sequelize.STRING, allowNull: false },
   };
 
-  const Recipe = sequelize.define<RecipeInstance, RecipeAttributes>('Recipe', attributes);
+  const Recipe = sequelize.define<RecipeInstance, RecipeAttributes>('Recipe', attributes, {
+    freezeTableName: true,
+    tableName: 'Recipes'
+  });
 
   Recipe.associate = models => {
-    Recipe.belongsTo(models.User, { as: 'user', foreignKey: 'userId' });
+    Recipe.belongsTo(models.User, { as: 'User', foreignKey: 'UserId' });
   };
 
   return Recipe;

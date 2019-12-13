@@ -1,15 +1,13 @@
-import jwt from 'jsonwebtoken';
-import bcrypt from 'bcryptjs';
-
-const passwordHashSaltRounds = 10;
+import * as jwt from 'jsonwebtoken';
+import * as passwordHash from 'password-hash';
 
 const decrypt = token => jwt.verify(token, 'appKey');
 
 const encrypt = data => jwt.sign(data, 'appKey');
 
-const hashPassword = password => bcrypt.hashSync(password, passwordHashSaltRounds);
+const hashPassword = password => passwordHash.generate(password);
 
-const comparePasswords = (plainPass, encrypted) => bcrypt.compare(plainPass, encrypted);
+const comparePasswords = (plainPass, encrypted) => passwordHash.verify(plainPass, encrypted);
 
 export {
   decrypt,

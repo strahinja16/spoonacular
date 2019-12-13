@@ -35,7 +35,10 @@ export const UserFactory = (sequelize: Sequelize.Sequelize, DataTypes: Sequelize
     email: { type: Sequelize.STRING, allowNull: false },
   };
 
-  const User = sequelize.define<UserInstance, UserAttributes>('User', attributes);
+  const User = sequelize.define<UserInstance, UserAttributes>('User', attributes, {
+    freezeTableName: true,
+    tableName: 'Users'
+  });
 
   User.associate = models => {
     User.hasMany(models.Recipe);

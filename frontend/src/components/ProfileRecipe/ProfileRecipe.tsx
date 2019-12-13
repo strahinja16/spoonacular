@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
 import { useHistory } from 'react-router-dom';
 import { RecipeDto } from '../../models/RecipeDto';
-import './styles.scss';
 
 export interface ProfileRecipeProps {
   recipe: RecipeDto;

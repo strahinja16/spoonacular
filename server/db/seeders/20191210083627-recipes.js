@@ -15,10 +15,10 @@ module.exports = {
       });
     }
 
-    return queryInterface.bulkInsert('recipes', insertData, {});
+    return queryInterface.bulkInsert('Recipes', insertData, {});
   },
 
   down: (queryInterface) => {
-    return queryInterface.bulkDelete('recipes', null, {});
+    return queryInterface.bulkDelete('Recipes', null, {});
   },
 };

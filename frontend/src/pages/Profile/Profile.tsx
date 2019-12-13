@@ -7,7 +7,8 @@ import { getProfileRecipes } from '../../store/profile/action-creators';
 import { AppState } from '../../store/reducer';
 
 const Profile: FC = () => {
-  useFetching(getProfileRecipes);
+  const user = useSelector((state: AppState) => state.auth.user);
+  useFetching(getProfileRecipes, user ? user.id : '0');
   const profileRecipes = useSelector((state: AppState) => state.profile.recipes);
 
   return profileRecipes.length === 0 ? (

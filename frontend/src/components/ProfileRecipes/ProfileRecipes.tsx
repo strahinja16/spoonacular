@@ -2,7 +2,6 @@ import React, { FC } from 'react';
 import { Col, Row } from 'react-flexbox-grid';
 import { RecipeDto } from '../../models/RecipeDto';
 import ProfileRecipe from '../ProfileRecipe/ProfileRecipe';
-import './styles.scss';
 
 export interface ProfileRecipesProps {
   profileRecipes: RecipeDto[];

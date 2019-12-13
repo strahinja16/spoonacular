@@ -1,8 +1,6 @@
 const faker = require('faker');
 const uuid = require('uuid/v4');
-const bcrypt = require('bcryptjs');
-
-const passwordHashSaltRounds = 10;
+const passwordHash = require('password-hash');
 
 module.exports = {
   up: (queryInterface) => {
@@ -13,17 +11,17 @@ module.exports = {
         id: uuid(),
         firstName: faker.name.firstName(),
         lastName: faker.name.lastName(),
-        email: `dev-user${i}@test.com`,
-        password: bcrypt.hashSync('test', passwordHashSaltRounds),
+        email: `user${i}@test.com`,
+        password: passwordHash.generate('test'),
         createdAt: new Date(),
         updatedAt: new Date(),
       });
     }
 
-    return queryInterface.bulkInsert('users', insertData, {});
+    return queryInterface.bulkInsert('Users', insertData, {});
   },
 
   down: (queryInterface) => {
-    return queryInterface.bulkDelete('users', null, {});
+    return queryInterface.bulkDelete('Users', null, {});
   },
 };

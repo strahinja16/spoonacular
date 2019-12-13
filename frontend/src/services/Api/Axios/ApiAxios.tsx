@@ -17,6 +17,12 @@ instance.interceptors.request.use(
       }
     }
 
+    const authToken = localStorage.getItem('_token');
+
+    if (authToken) {
+      config.headers.Authorization = authToken;
+    }
+
     return config;
   },
   (error: any) => {
