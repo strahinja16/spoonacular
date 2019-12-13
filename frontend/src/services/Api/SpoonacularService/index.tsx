@@ -7,6 +7,7 @@ import { Recipe } from '../../../models/Recipe';
 import { RecipeBulk } from '../../../models/RecipeBulk';
 import { RecipeByNutrient } from '../../../models/RecipeByNutrient';
 import { RecipePriceBreakdown } from '../../../models/RecipePriceBreakdown';
+import objectToQueryString from '../../../util/objectToQueryString';
 import axios from '../Axios/SpoonacularAxios';
 
 export class SpoonacularService {
@@ -33,10 +34,10 @@ export class SpoonacularService {
   }
 
   public searchRecipeByNutrient(params: RecipeSearchByNutrientParams): Promise<RecipeByNutrient[]> {
+    const query = objectToQueryString(params);
+
     return axios
-      .get('/recipes/findByNutrients', {
-        params,
-      })
+      .get(`/recipes/findByNutrients${query}`)
       .then(response => response.data)
       .catch(e => console.log(e.toString()));
   }

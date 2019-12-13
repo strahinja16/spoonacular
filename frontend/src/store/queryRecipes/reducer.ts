@@ -1,56 +1,56 @@
 import { Recipe } from '../../models/Recipe';
 import { RecipeByNutrient } from '../../models/RecipeByNutrient';
 import { RecipeSearchType } from '../../models/RecipeSearchType';
-import { SearchRecipesActionTypes } from './action-types';
+import { QueryRecipesActionTypes } from './action-types';
 import {
-  SearchRecipesActions,
+  QueryRecipesActions,
   SetBasicRecipes,
   SetNutritionRecipes,
   SetSearchError,
   SetSearchType,
 } from './actions';
 
-export interface SearchRecipesState {
+export interface QueryRecipesState {
   error: string;
   nutritionRecipes: RecipeByNutrient[];
   basicRecipes: Recipe[];
   searchType: RecipeSearchType;
 }
 
-const initialState: SearchRecipesState = {
+const initialState: QueryRecipesState = {
   basicRecipes: [],
   error: '',
   nutritionRecipes: [],
   searchType: RecipeSearchType.BASIC,
 };
 
-export function searchRecipesReducer(
+export function queryRecipesReducer(
   state = initialState,
-  action: SearchRecipesActions
-): SearchRecipesState {
+  action: QueryRecipesActions
+): QueryRecipesState {
   switch (action.type) {
-    case SearchRecipesActionTypes.SET_SEARCH_TYPE: {
+    case QueryRecipesActionTypes.SET_SEARCH_TYPE: {
       const { searchType } = action as SetSearchType;
       return {
         ...state,
         searchType,
       };
     }
-    case SearchRecipesActionTypes.SET_NUTRITION_RECIPES: {
+    case QueryRecipesActionTypes.SET_NUTRITION_RECIPES: {
       const { nutritionRecipes } = action as SetNutritionRecipes;
       return {
         ...state,
         nutritionRecipes,
       };
     }
-    case SearchRecipesActionTypes.SET_BASIC_RECIPES: {
+    case QueryRecipesActionTypes.SET_BASIC_RECIPES: {
       const { basicRecipes } = action as SetBasicRecipes;
       return {
         ...state,
         basicRecipes,
       };
     }
-    case SearchRecipesActionTypes.SET_SEARCH_ERROR: {
+    case QueryRecipesActionTypes.SET_SEARCH_ERROR: {
       const { error } = action as SetSearchError;
       return {
         ...state,

@@ -1,9 +1,7 @@
 import React, { FC, useCallback, useState } from 'react';
 import { Col, Row } from 'react-flexbox-grid';
 import { useHistory } from 'react-router-dom';
-import { RecipeSearchByNutrientParams } from '../../models/Params/RecipeSearchByNutrientParams';
 import { RecipeSearchType } from '../../models/RecipeSearchType';
-import spoonacularService from '../../services/Api/SpoonacularService';
 import './styles.scss';
 
 // tslint:disable-next-line:no-empty-interface
@@ -33,14 +31,23 @@ const SearchRecipeByNutritionForm: FC<SearchRecipeByNutritionFormProps> = () => 
   );
 
   const validateForm = (): boolean => {
-    Object.values(inputValues).forEach(val => !isNaN(Number(val)));
+    const validNumbers = Object.values(inputValues).every(val => !isNaN(Number(val)) || val === '');
 
-    return (
-      Number(inputValues.minFat) <= Number(inputValues.maxFat) &&
-      Number(inputValues.minCarbs) <= Number(inputValues.maxCarbs) &&
-      Number(inputValues.minProtein) <= Number(inputValues.maxProtein) &&
-      Number(inputValues.minCalories) <= Number(inputValues.maxCalories)
-    );
+    let valid = true;
+    if (inputValues.minFat !== '' && inputValues.maxFat !== '') {
+      valid = valid && Number(inputValues.minFat) <= Number(inputValues.maxFat);
+    }
+    if (inputValues.minCalories !== '' && inputValues.maxCalories !== '') {
+      valid = valid && Number(inputValues.minCalories) <= Number(inputValues.maxCalories);
+    }
+    if (inputValues.minCarbs !== '' && inputValues.maxCarbs !== '') {
+      valid = valid && Number(inputValues.minCarbs) <= Number(inputValues.maxCarbs);
+    }
+    if (inputValues.minProtein !== '' && inputValues.maxProtein !== '') {
+      valid = valid && Number(inputValues.minProtein) <= Number(inputValues.maxProtein);
+    }
+
+    return validNumbers && valid;
   };
 
   const handleSubmit = (e: any) => {
@@ -61,7 +68,9 @@ const SearchRecipeByNutritionForm: FC<SearchRecipeByNutritionFormProps> = () => 
 
     // eslint-disable-next-line array-callback-return
     Object.keys(inputValues).map(key => {
-      payload[key] = Number((inputValues as any)[key]);
+      if ((inputValues as any)[key]) {
+        payload[key] = Number((inputValues as any)[key]);
+      }
     });
 
     history.push({

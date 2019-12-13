@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import { Col, Row } from 'react-flexbox-grid';
 import { Recipe } from '../../models/Recipe';
+import { SPOONACULAR_IMAGES_URL } from '../../services/Api/Axios/Constants';
 import './styles.scss';
 
 export interface BasicRecipeProps {
@@ -9,7 +10,7 @@ export interface BasicRecipeProps {
 
 const BasicRecipe: FC<BasicRecipeProps> = ({ recipe }) => (
   <section className="basicRecipeSection">
-    <img className="recipeImg" src={recipe.image} />
+    <img className="recipeImg" src={`${SPOONACULAR_IMAGES_URL}/${recipe.image}`} />
     <div className="recipeInfo">
       <div>{recipe.title}</div>
       <Row>

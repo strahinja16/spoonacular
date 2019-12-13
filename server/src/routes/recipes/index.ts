@@ -15,6 +15,7 @@ router.get('/', (req: Request, res: Response) => {
         return res.send({ data: cachedRecipes.recipes });
       }
 
+      console.log('here');
       const query = '?ids=426,987,316,413,521,155';
       fetch('/recipes/informationBulk', query)
         .then(res => res.json())

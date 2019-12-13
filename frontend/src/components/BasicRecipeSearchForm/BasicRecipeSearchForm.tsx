@@ -1,8 +1,8 @@
 import React, { FC, useCallback, useState } from 'react';
 import { Col, Row } from 'react-flexbox-grid';
 import { useHistory } from 'react-router-dom';
-import './styles.scss';
 import { RecipeSearchType } from '../../models/RecipeSearchType';
+import './styles.scss';
 
 // tslint:disable-next-line:no-empty-interface
 export interface BasicRecipeSearchFormProps {}

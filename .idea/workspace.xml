@@ -2,11 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c3cc962b-20e0-4a50-89a1-1f4c28a441bd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/Strahinja.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/Strahinja.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/middleware/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/middleware/validate.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/models/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/models/recipe.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/models/user.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/requests/auth.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/requests/payloads/auth.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/routes/auth/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/services/auth/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/services/sequelize/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/types.d.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/.env" beforeDir="false" afterPath="$PROJECT_DIR$/server/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/server.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/server/yarn.lock" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,7 +34,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/frontend/src/components/RecipeDetailedPreparation" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/server/src/models" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -37,17 +49,22 @@
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="prettierjs.PrettierConfiguration.Package" value="C:\Spoonacular\spoonacular\node_modules\prettier" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
-    <property name="ts.external.directory.path" value="$PROJECT_DIR$/server/node_modules/typescript/lib" />
+    <property name="ts.external.directory.path" value="C:\Spoonacular\spoonacular\server\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Spoonacular\spoonacular\frontend\src\store\featuredRecipes" />
-      <recent name="$PROJECT_DIR$" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Spoonacular\spoonacular\server\src\models" />
+      <recent name="C:\Spoonacular\spoonacular\frontend\src\pages" />
+      <recent name="C:\Spoonacular\spoonacular\frontend\src\store\searchRecipes" />
       <recent name="C:\Spoonacular\spoonacular\frontend\src\components\RecipeDetailedPreparation" />
       <recent name="C:\Spoonacular\spoonacular\frontend\src\store\detailedRecipe" />
-      <recent name="C:\Spoonacular\spoonacular\frontend\src\store\showcaseRecipes" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Spoonacular\spoonacular\server\src\requests\payloads" />
+      <recent name="C:\Spoonacular\spoonacular\server\src\models" />
+      <recent name="C:\Spoonacular\spoonacular\server\src\db" />
+      <recent name="C:\Spoonacular\spoonacular\frontend\src\store\featuredRecipes" />
+      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -79,7 +96,7 @@
       <workItem from="1574842757824" duration="508000" />
       <workItem from="1575380349401" duration="8445000" />
       <workItem from="1575449573573" duration="11720000" />
-      <workItem from="1575547617125" duration="8968000" />
+      <workItem from="1575547617125" duration="37221000" />
     </task>
     <servers />
   </component>
