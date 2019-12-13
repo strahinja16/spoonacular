@@ -1,3 +1,5 @@
-./frontend/node_modules/*
-./server/node_modules/*
-./server/.env
+/frontend/node_modules/*
+/server/node_modules/*
+/server/.env
+.idea/workspace.xml
+.DS_Store
