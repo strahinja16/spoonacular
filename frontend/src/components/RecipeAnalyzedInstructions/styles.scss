@@ -1,7 +1,12 @@
 @import './../../ui';
 
-.recipeDetailedPreparationSection {
-  margin: 10px;
-  border: 1px solid lightgray;
-  box-shadow: 0 4px 10px -2px lightgray;
+.analyzedInstructionStepSection {
+  .headline {
+    font-weight: bold;
+    font-size: 26px;
+    text-align: center;
+    padding: 10px;
+    border-bottom: 1px solid lightgray;
+    border-top: 1px solid lightgray;
+  }
 }

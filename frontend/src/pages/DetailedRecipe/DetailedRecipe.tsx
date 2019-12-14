@@ -1,5 +1,4 @@
 import React from 'react';
-import { Col, Row } from 'react-flexbox-grid';
 import { useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
 import RecipeAnalyzedInstructions from '../../components/RecipeAnalyzedInstructions/RecipeAnalyzedInstructions';
@@ -7,6 +6,7 @@ import RecipeBulkCard from '../../components/RecipeBulkCard/RecipeBulkCard';
 import { useFetching } from '../../hooks/useFetching';
 import { getDetailedRecipe } from '../../store/detailedRecipe/action-creators';
 import { AppState } from '../../store/reducer';
+import './styles.scss';
 
 const DetailedRecipe = () => {
   const { params } = useRouteMatch();
@@ -21,17 +21,9 @@ const DetailedRecipe = () => {
 
   if (detailedRecipe) {
     return (
-      <section>
-        <Row>
-          <Col xs={6} sm={6} md={6} lg={6}>
-            <RecipeBulkCard recipe={detailedRecipe} />
-          </Col>
-          <Col xs={6} sm={6} md={6} lg={6}>
-            <RecipeAnalyzedInstructions
-              analyzedInstructions={detailedRecipe.analyzedInstructions}
-            />
-          </Col>
-        </Row>
+      <section className="detailedRecipeSection">
+        <RecipeBulkCard recipe={detailedRecipe} />
+        <RecipeAnalyzedInstructions analyzedInstructions={detailedRecipe.analyzedInstructions} />
       </section>
     );
   }

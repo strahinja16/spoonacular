@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-import { Row } from 'react-flexbox-grid';
 import { AnalyzedInstruction } from '../../models/RecipeBulk';
 import AnalyzedInstructionStep from '../AnalyzedInstructionStep/AnalyzedInstructionStep';
 import './styles.scss';
@@ -12,18 +11,18 @@ const RecipeAnalyzedInstructions: FC<RecipeDetailedPreparationProps> = ({
   analyzedInstructions,
 }) => {
   return (
-    <section className="recipeDetailedPreparationSection">
-      {analyzedInstructions.map(({ name, steps }) => {
+    <div className="analyzedInstructionStepSection">
+      <div className="headline">Preparation instructions:</div>
+      {analyzedInstructions.map(({ steps }) => {
         return (
-          <section key={name}>
-            <Row>{name}</Row>
+          <>
             {steps.map(step => (
               <AnalyzedInstructionStep key={step.number} step={step} />
             ))}
-          </section>
+          </>
         );
       })}
-    </section>
+    </div>
   );
 };
 

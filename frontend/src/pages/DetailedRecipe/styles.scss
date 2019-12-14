@@ -1,0 +1,11 @@
+@import '../../ui';
+
+.detailedRecipeSection {
+  border: 1px solid lightgray;
+  box-shadow: 0 4px 10px -2px lightgray;
+  background-color: $light;
+
+  width: 500px;
+  margin: auto;
+  margin-top: 10px;
+}
