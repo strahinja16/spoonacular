@@ -10,7 +10,6 @@ const Featured: FC = () => {
   useFetching(getFeaturedRecipes);
   const featuredRecipes = useSelector((state: AppState) => state.featured.featuredRecipes);
 
-  console.log({ featuredRecipes });
   return featuredRecipes.length === 0 ? (
     <Loading />
   ) : (

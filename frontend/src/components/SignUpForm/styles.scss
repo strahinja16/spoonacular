@@ -1,7 +1,7 @@
 @import '../../ui';
 
-.nutritionSearchForm {
-  padding: 10px 0 20px 0;
+.signUpSection {
+  padding: 20px 0 20px 0;
 
   .container {
     .primaryText {
@@ -46,8 +46,7 @@
       color: gray;
     }
 
-    .searchButton {
-      margin-right: 5px;
+    .signUpButton {
       background: $primary;
       color: #fff;
     }
@@ -59,7 +58,7 @@
 }
 
 @media(max-width:800px){
-  .login {
+  .signUpSection {
     .container {
       form input {
         width: 80%;

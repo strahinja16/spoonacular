@@ -5,6 +5,7 @@ import RecipeSearchDropdown, {
   recipeSearchOptions,
 } from '../../components/RecipeSearchDropdown/RecipeSearchDropdown';
 import SearchRecipeByNutritionForm from '../../components/SearchRecipeByNutritionForm/SearchRecipeByNutritionForm';
+import './styles.scss';
 
 export enum SearchForm {
   BASIC_SEARCH = 'basic',
@@ -19,7 +20,9 @@ const SearchRecipes: FC = () => {
 
   return (
     <>
-      <RecipeSearchDropdown onSelect={onSelect} />
+      <div className="searchDropdown">
+        <RecipeSearchDropdown onSelect={onSelect} />
+      </div>
       {option.value === SearchForm.BASIC_SEARCH && <BasicRecipeSearchForm />}
       {option.value === SearchForm.SEARCH_BY_NUTRITION && <SearchRecipeByNutritionForm />}
     </>

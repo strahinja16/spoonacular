@@ -1,4 +1,40 @@
 @import './../../ui';
 
 .recipeBulkSection {
+  margin: 10px;
+  border: 1px solid lightgray;
+  box-shadow: 0 4px 10px -2px lightgray;
+  position: relative;
+
+  button {
+    width: 100%;
+  }
+
+  .instructions {
+    height: 40px;
+    font-weight: bold;
+    font-size: 14px;
+    color: $primary
+  }
+
+  .instructions:hover {
+    background-color: $primary;
+    color: $light;
+    cursor: pointer;
+  }
+
+  .likeRecipe {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+
+    .likeThumbs {
+      color: $primary;
+    }
+
+    .likeThumbs:hover {
+      cursor: pointer;
+    }
+  }
 }

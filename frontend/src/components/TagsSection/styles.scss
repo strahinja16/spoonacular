@@ -1,12 +1,15 @@
 @import '../../ui';
 
 .tagsSection {
+  padding: 10px 5px;
+
   .tag {
-    color: $primary;
+    color: $light;
+    background-color: $primary;
+    font-style: italic;
+    margin: 0 5px;
     padding: 5px;
     width: 70px;
     height: 30px;
-    border: 1px solid $dark;
-    border-radius: 40%;
   }
 }

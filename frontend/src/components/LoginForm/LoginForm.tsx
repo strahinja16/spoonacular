@@ -5,6 +5,7 @@ import { Col, Row } from 'react-flexbox-grid';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { loginUserStart } from '../../store/auth/action-creators';
+import './styles.scss';
 
 const LoginForm = () => {
   const history = useHistory();
@@ -62,7 +63,7 @@ const LoginForm = () => {
   };
 
   return (
-    <section className="signUpSection">
+    <section className="loginSection">
       <div className="container">
         <Row center="xs">
           <Col xs={12} sm={12} md={12} lg={12}>

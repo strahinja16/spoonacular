@@ -51,7 +51,7 @@ const BasicRecipeSearchForm: FC<BasicRecipeSearchFormProps> = () => {
   };
 
   return (
-    <section className="basicRecipeSearchFormSection">
+    <section className="basicRecipeSearchForm">
       <div className="container">
         <Row center="xs">
           <Col xs={12} sm={12} md={12} lg={12}>
@@ -97,7 +97,7 @@ const BasicRecipeSearchForm: FC<BasicRecipeSearchFormProps> = () => {
                   value={inputValues.intolerances}
                 />
               </div>
-              <button type="submit" onSubmit={handleSubmit} name="button">
+              <button type="submit" className="searchButton" onSubmit={handleSubmit} name="button">
                 Search
               </button>
             </form>

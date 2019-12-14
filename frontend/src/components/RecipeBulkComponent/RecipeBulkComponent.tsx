@@ -1,10 +1,11 @@
-import React, { FC, useEffect } from 'react';
+import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React, { FC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { useUserLikedRecipe } from '../../hooks/useUserLikedRecipe';
 import { CreateProfileRecipeDto } from '../../models/Params/CreateProfileRecipeDto';
 import { RecipeBulk } from '../../models/RecipeBulk';
-import { SPOONACULAR_IMAGES_URL } from '../../services/Api/Axios/Constants';
 import { createProfileRecipe } from '../../store/profile/action-creators';
 import { AppState } from '../../store/reducer';
 import Loading from '../Loading/Loading';
@@ -57,9 +58,9 @@ const RecipeBulkComponent: FC<RecipeBulkComponentProps> = ({ recipe }) => {
         </button>
       )}
       {userLoggedIn && !userLikedRecipe && (
-        <button onClick={onLikeRecipe} className="likeRecipe">
-          Like
-        </button>
+        <div onClick={onLikeRecipe} className="likeRecipe">
+          <FontAwesomeIcon icon={faThumbsUp} className="likeThumbs" />
+        </div>
       )}
     </section>
   );

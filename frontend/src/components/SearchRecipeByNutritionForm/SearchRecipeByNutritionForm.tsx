@@ -80,7 +80,7 @@ const SearchRecipeByNutritionForm: FC<SearchRecipeByNutritionFormProps> = () => 
   };
 
   return (
-    <section className="searchRecipeByNutritionFormSection">
+    <section className="nutritionSearchForm">
       <div className="container">
         <Row center="xs">
           <Col xs={12} sm={12} md={12} lg={12}>
@@ -166,7 +166,7 @@ const SearchRecipeByNutritionForm: FC<SearchRecipeByNutritionFormProps> = () => 
                   value={inputValues.maxFat}
                 />
               </div>
-              <button type="submit" onSubmit={handleSubmit} name="button">
+              <button type="submit" className="searchButton" onSubmit={handleSubmit} name="button">
                 Search
               </button>
             </form>

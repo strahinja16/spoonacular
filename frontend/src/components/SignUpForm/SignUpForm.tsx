@@ -5,6 +5,7 @@ import { Col, Row } from 'react-flexbox-grid';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router';
 import { signUpUserStart } from '../../store/auth/action-creators';
+import './styles.scss';
 
 const SignUpForm = () => {
   const history = useHistory();
@@ -79,7 +80,9 @@ const SignUpForm = () => {
       <div className="container">
         <Row center="xs">
           <Col xs={12} sm={12} md={12} lg={12}>
-            <h2>Sign up</h2>
+            <h2>
+              <span className="primaryText">Sign</span>Up
+            </h2>
             <form onSubmit={handleSubmit}>
               <div className={'validationError' ? 'errorMessage' : 'hidden'}>{error}</div>
               <div>

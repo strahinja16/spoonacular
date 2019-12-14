@@ -1,3 +1,73 @@
-.basicRecipeSearchForm {
+@import '../../ui';
 
+.basicRecipeSearchForm {
+  padding: 10px 0 20px 0;
+
+  .container {
+    .primaryText {
+      color: $primary;
+    }
+
+    form {
+      padding: 0 40px;
+    }
+
+    .errorMessage {
+      width: 40%;
+      margin: auto;
+      margin-bottom: 10px;
+    }
+
+    form input {
+      width: 40%;
+      height: 37px;
+      margin-bottom: 10px;
+    }
+
+    form label {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    form button{
+      width: 40%;
+      padding: 10px 0;
+      border: 0;
+      margin-top: 10px;
+      font-size: 16px;
+    }
+
+    form button:hover {
+      cursor: pointer;
+    }
+
+    form button:disabled {
+      background-color: darken($primary, 20%);
+      color: gray;
+    }
+
+    .searchButton {
+      margin-right: 5px;
+      background: $primary;
+      color: #fff;
+    }
+
+    .hidden {
+      display: none;
+    }
+  }
+}
+
+@media(max-width:800px){
+  .login {
+    .container {
+      form input {
+        width: 80%;
+      }
+
+      form button {
+        width: 80%;
+      }
+    }
+  }
 }
