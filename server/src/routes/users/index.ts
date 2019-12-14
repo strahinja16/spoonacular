@@ -55,8 +55,30 @@ router.post('/:id/recipes', middleware('auth'), async (req: Request, res: Respon
     await usersRecipes.setUser(user);
     await usersRecipes.setRecipe(createdRecipe);
 
-    return res.send({ data: recipe });
+    return res.send({ recipe });
   }
+});
+
+router.delete('/:userId/recipes/:recipeId', middleware('auth'), async (req: Request, res: Response) => {
+  const existingRelationship = await db.UsersRecipes.findOne({
+    where: {
+      UserId: req.params.userId,
+      RecipeId: req.params.recipeId
+    }
+  });
+
+  if (!existingRelationship) return res.status(400).send({ message: 'Bad request'});
+
+  await db.UsersRecipes.destroy({
+    where: {
+      UserId: req.params.userId,
+      RecipeId: req.params.recipeId
+    }
+  });
+
+  const recipe = await db.Recipe.findById(req.params.recipeId);
+
+  return res.send({ recipe });
 });
 
 export default {

@@ -3,4 +3,5 @@ export interface RecipeDto {
   title: string;
   image: string;
   UserId: string;
+  id: string;
 }

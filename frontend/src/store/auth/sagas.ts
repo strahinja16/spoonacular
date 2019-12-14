@@ -18,7 +18,7 @@ export function* login(action: LoginUserStart) {
 
     yield call(push, '/');
   } catch (e) {
-    console.log(e.toSTring());
+    console.log(e.toString());
   }
 }
 
@@ -29,7 +29,7 @@ export function* signUp(action: SignUpUserStart) {
 
     yield call(push, '/login');
   } catch (e) {
-    console.log(e.toSTring());
+    console.log(e.toString());
   }
 }
 

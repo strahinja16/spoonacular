@@ -1,6 +1,7 @@
 import { Action } from 'redux';
 import { CreateProfileRecipeDto } from '../../models/Params/CreateProfileRecipeDto';
 import { RecipeDto } from '../../models/RecipeDto';
+import { RemoveRecipeDto } from '../../models/RemoveRecipeDto';
 import { ProfileActionTypes } from './action-types';
 
 export interface GetProfileRecipes extends Action {
@@ -18,6 +19,16 @@ export interface AddProfileRecipe extends Action {
   recipe: RecipeDto;
 }
 
+export interface RemoveProfileRecipeStart extends Action {
+  type: ProfileActionTypes.REMOVE_PROFILE_RECIPE_START;
+  payload: RemoveRecipeDto;
+}
+
+export interface RemoveProfileRecipeSuccess extends Action {
+  type: ProfileActionTypes.REMOVE_PROFILE_RECIPE_SUCCESS;
+  payload: RecipeDto;
+}
+
 export interface CreateProfileRecipe extends Action {
   type: ProfileActionTypes.CREATE_PROFILE_RECIPE;
   payload: CreateProfileRecipeDto;
@@ -33,4 +44,6 @@ export type ProfileActions =
   | CreateProfileRecipe
   | SetProfileError
   | SetProfileRecipes
+  | RemoveProfileRecipeStart
+  | RemoveProfileRecipeSuccess
   | AddProfileRecipe;

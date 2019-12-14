@@ -21,6 +21,7 @@ const RecipeBulkComponent: FC<RecipeBulkComponentProps> = ({ recipe }) => {
   const userLoggedIn = !!useSelector((state: AppState) => state.auth.token);
   const userLikedRecipe = useUserLikedRecipe(recipe.id.toString());
   const user = useSelector((state: AppState) => state.auth.user);
+  const recipes = useSelector((state: AppState) => state.profile.recipes);
 
   const onDetailedPreparationClick = () => {
     history.push(`/recipe/${recipe.id}`);
@@ -42,6 +43,10 @@ const RecipeBulkComponent: FC<RecipeBulkComponentProps> = ({ recipe }) => {
 
     dispatch(createProfileRecipe(payload));
   };
+
+  if (userLoggedIn && recipes === undefined) {
+    return <Loading />;
+  }
 
   return (
     <section className="recipeBulkSection">

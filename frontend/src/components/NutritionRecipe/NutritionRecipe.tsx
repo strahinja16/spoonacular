@@ -5,7 +5,6 @@ import { useHistory } from 'react-router';
 import { useUserLikedRecipe } from '../../hooks/useUserLikedRecipe';
 import { CreateProfileRecipeDto } from '../../models/Params/CreateProfileRecipeDto';
 import { RecipeByNutrient } from '../../models/RecipeByNutrient';
-import { RecipeDto } from '../../models/RecipeDto';
 import { createProfileRecipe } from '../../store/profile/action-creators';
 import { AppState } from '../../store/reducer';
 import './styles.scss';

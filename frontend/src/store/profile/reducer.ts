@@ -1,6 +1,12 @@
 import { RecipeDto } from '../../models/RecipeDto';
 import { ProfileActionTypes } from './action-types';
-import { AddProfileRecipe, ProfileActions, SetProfileError, SetProfileRecipes } from './actions';
+import {
+  AddProfileRecipe,
+  ProfileActions,
+  RemoveProfileRecipeSuccess,
+  SetProfileError,
+  SetProfileRecipes,
+} from './actions';
 
 export interface ProfileState {
   error: string;
@@ -23,9 +29,18 @@ export function profileReducer(state = initialState, action: ProfileActions): Pr
     }
     case ProfileActionTypes.ADD_PROFILE_RECIPE: {
       const { recipe } = action as AddProfileRecipe;
+      const newRecipes = state.recipes.concat(recipe);
       return {
         ...state,
-        recipes: [...state.recipes, recipe],
+        recipes: newRecipes,
+      };
+    }
+    case ProfileActionTypes.REMOVE_PROFILE_RECIPE_SUCCESS: {
+      const { payload } = action as RemoveProfileRecipeSuccess;
+      const filtered = state.recipes.filter(rec => rec.id !== payload.id);
+      return {
+        ...state,
+        recipes: filtered,
       };
     }
     case ProfileActionTypes.SET_PROFILE_ERROR: {
