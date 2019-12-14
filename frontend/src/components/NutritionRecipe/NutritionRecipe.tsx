@@ -1,3 +1,11 @@
+import {
+  faBacon,
+  faBreadSlice,
+  faDrumstickBite,
+  faThumbsUp,
+  faUtensils,
+} from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { FC } from 'react';
 import { Col, Row } from 'react-flexbox-grid';
 import { useDispatch, useSelector } from 'react-redux';
@@ -42,26 +50,40 @@ const NutritionRecipe: FC<NutritionRecipeProps> = ({ recipe }) => {
 
   return (
     <section className="nutritionRecipeSection">
-      <img className="recipeImg" src={recipe.image} />
-      <div className="recipeInfo">
-        <div>{recipe.title}</div>
-        <Row>
-          <Col xs={4} sm={4} md={4} lg={4}>
-            {recipe.calories} calories
-          </Col>
-          <Col xs={4} sm={4} md={4} lg={4}>
-            {recipe.carbs} carbs
-          </Col>
-        </Row>
-        <button onClick={onDetailedPreparationClick} className="instructions">
-          Detailed preparation instructions
-        </button>
-        {userLikedRecipe || (
-          <button onClick={onLikeRecipe} className="likeRecipe">
-            Like
-          </button>
-        )}
-      </div>
+      <section className="infoSection">
+        <img className="recipeImg" src={recipe.image} />
+        <div className="recipeInfo">
+          <div className="recipeTitle">
+            <div>{recipe.title}</div>
+          </div>
+          <Row className="row">
+            <Col className="recipeFeature" xs={3} sm={3} md={3} lg={3}>
+              <FontAwesomeIcon icon={faUtensils} />
+              <span>{recipe.calories} kcal</span>
+            </Col>
+            <Col className="recipeFeature" xs={3} sm={3} md={3} lg={3}>
+              <FontAwesomeIcon icon={faDrumstickBite} />
+              <span> {recipe.protein} p</span>
+            </Col>
+            <Col className="recipeFeature" xs={3} sm={3} md={3} lg={3}>
+              <FontAwesomeIcon icon={faBreadSlice} />
+              <span>{recipe.carbs} c</span>
+            </Col>
+            <Col className="recipeFeature" xs={3} sm={3} md={3} lg={3}>
+              <FontAwesomeIcon icon={faBacon} />
+              <span> {recipe.fat} f</span>
+            </Col>
+          </Row>
+        </div>
+      </section>
+      <button onClick={onDetailedPreparationClick} className="instructions">
+        Detailed preparation instructions
+      </button>
+      {!userLikedRecipe && (
+        <div onClick={onLikeRecipe} className="likeRecipe">
+          <FontAwesomeIcon icon={faThumbsUp} className="likeThumbs" />
+        </div>
+      )}
     </section>
   );
 };

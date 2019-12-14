@@ -1,3 +1,5 @@
+import { faClock, faHamburger, faThumbsUp } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { FC } from 'react';
 import { Col, Row } from 'react-flexbox-grid';
 import { useDispatch, useSelector } from 'react-redux';
@@ -43,26 +45,32 @@ const BasicRecipe: FC<BasicRecipeProps> = ({ recipe }) => {
 
   return (
     <section className="basicRecipeSection">
-      <img className="recipeImg" src={`${SPOONACULAR_IMAGES_URL}${recipe.image}`} />
-      <div className="recipeInfo">
-        <div>{recipe.title}</div>
-        <Row>
-          <Col xs={4} sm={4} md={4} lg={4}>
-            {recipe.readyInMinutes} minutes
-          </Col>
-          <Col xs={4} sm={4} md={4} lg={4}>
-            {recipe.servings} servings
-          </Col>
-        </Row>
-        <button onClick={onDetailedPreparationClick} className="instructions">
-          Detailed preparation instructions
-        </button>
-        {userLikedRecipe || (
-          <button onClick={onLikeRecipe} className="likeRecipe">
-            Like
-          </button>
-        )}
-      </div>
+      <section className="infoSection">
+        <img className="recipeImg" src={`${SPOONACULAR_IMAGES_URL}${recipe.image}`} />
+        <div className="recipeInfo">
+          <div className="recipeTitle">
+            <div>{recipe.title}</div>
+          </div>
+          <Row className="row">
+            <Col className="recipeFeature" xs={6} sm={6} md={6} lg={6}>
+              <FontAwesomeIcon icon={faClock} />
+              <span>{recipe.readyInMinutes} min</span>
+            </Col>
+            <Col className="recipeFeature" xs={6} sm={6} md={6} lg={6}>
+              <FontAwesomeIcon icon={faHamburger} />
+              <span> {recipe.servings} servings</span>
+            </Col>
+          </Row>
+        </div>
+      </section>
+      <button onClick={onDetailedPreparationClick} className="instructions">
+        Detailed preparation instructions
+      </button>
+      {!userLikedRecipe && (
+        <div onClick={onLikeRecipe} className="likeRecipe">
+          <FontAwesomeIcon icon={faThumbsUp} className="likeThumbs" />
+        </div>
+      )}
     </section>
   );
 };
