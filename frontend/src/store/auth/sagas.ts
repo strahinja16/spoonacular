@@ -1,5 +1,6 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
 import apiService from '../../services/Api/ApiService';
+import { setProfileRecipes } from '../profile/action-creators';
 import { loginUserSuccess, logoutSuccess } from './action-creators';
 import { AuthActionTypes } from './action-types';
 import { LoginUserStart, Logout, SignUpUserStart } from './actions';
@@ -8,10 +9,13 @@ export function* login(action: LoginUserStart) {
   try {
     const { push, ...loginPayload } = action.payload;
     const payload = yield call(apiService.login, loginPayload);
+    const recipes = yield call(apiService.getUserRecipes, payload.user.id);
 
     localStorage.setItem('_token', payload.token);
 
     yield put(loginUserSuccess(payload));
+    yield put(setProfileRecipes(recipes.data));
+
     yield call(push, '/');
   } catch (e) {
     console.log(e.toSTring());

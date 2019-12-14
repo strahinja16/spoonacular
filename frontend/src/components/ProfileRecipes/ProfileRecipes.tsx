@@ -12,7 +12,7 @@ const ProfileRecipes: FC<ProfileRecipesProps> = ({ profileRecipes }) => {
     <section className="profileRecipesSection">
       <Row>
         {profileRecipes.map((recipe: RecipeDto) => (
-          <Col key={recipe.id} xs={12} sm={4} md={4} lg={4}>
+          <Col key={recipe.externalId} xs={12} sm={4} md={4} lg={4}>
             <ProfileRecipe recipe={recipe} />
           </Col>
         ))}

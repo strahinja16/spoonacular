@@ -13,9 +13,6 @@ export interface RecipeAttributes {
 }
 
 export interface RecipeInstance extends Sequelize.Instance<RecipeAttributes>, RecipeAttributes {
-  getUser: Sequelize.BelongsToGetAssociationMixin<UserInstance>;
-  setUser: Sequelize.BelongsToSetAssociationMixin<UserInstance, UserInstance['id']>;
-  createUser: Sequelize.BelongsToCreateAssociationMixin<UserAttributes, UserInstance>;
 }
 
 export const RecipeFactory = (sequelize: Sequelize.Sequelize, DataTypes: Sequelize.DataTypes): Sequelize.Model<RecipeInstance, RecipeAttributes> => {
@@ -32,7 +29,7 @@ export const RecipeFactory = (sequelize: Sequelize.Sequelize, DataTypes: Sequeli
   });
 
   Recipe.associate = models => {
-    Recipe.belongsTo(models.User, { as: 'User', foreignKey: 'UserId' });
+    Recipe.hasMany(models.UsersRecipes);
   };
 
   return Recipe;

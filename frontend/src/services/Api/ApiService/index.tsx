@@ -26,14 +26,14 @@ export class ApiService {
       .catch(e => console.log(e.toString()));
   }
 
-  public getUserRecipes(userId: string): Promise<RecipeDto> {
+  public getUserRecipes(userId: string): Promise<RecipeDto[]> {
     return axios
       .get(`/users/${userId}/recipes`)
       .then(response => response.data)
       .catch(e => console.log(e.toString()));
   }
 
-  public createUserRecipe(userId: string, recipe: RecipeDto): Promise<void> {
+  public createUserRecipe(userId: string, recipe: RecipeDto): Promise<RecipeDto[]> {
     return axios
       .post(`/users/${userId}/recipes`, recipe)
       .then(response => response.data)

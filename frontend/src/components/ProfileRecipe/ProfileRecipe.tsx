@@ -18,7 +18,7 @@ const ProfileRecipe: FC<ProfileRecipeProps> = ({ recipe }) => {
       <img className="recipeImg" src={recipe.image} />
       <div className="recipeInfo">
         <div>{recipe.title}</div>
-        <button onClick={onDetailedInfoClick}>Detailed info</button>
+        <button onClick={onDetailedInfoClick}>Detailed preparation instructions</button>
       </div>
     </section>
   );

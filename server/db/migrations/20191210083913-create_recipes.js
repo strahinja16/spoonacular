@@ -7,13 +7,6 @@ module.exports = {
         defaultValue: Sequelize.UUIDV4,
         primaryKey: true,
       },
-      UserId: {
-        type: Sequelize.UUID,
-        references: {
-          model: 'Users',
-          key: 'id',
-        },
-      },
       title: {
         type: Sequelize.STRING,
         allowNull: false,

@@ -1,6 +1,6 @@
 import * as Sequelize from 'sequelize';
 import { SequelizeAttributes } from '../../src/types';
-import { RecipeAttributes, RecipeInstance } from './recipe';
+import { RecipeAttributes } from './recipe';
 
 export interface UserAttributes {
   id?: string;
@@ -14,16 +14,6 @@ export interface UserAttributes {
 }
 
 export interface UserInstance extends Sequelize.Instance<UserAttributes>, UserAttributes {
-  getRecipes: Sequelize.HasManyGetAssociationsMixin<RecipeInstance>;
-  setRecipes: Sequelize.HasManySetAssociationsMixin<RecipeInstance, RecipeInstance['id']>;
-  addRecipes: Sequelize.HasManyAddAssociationsMixin<RecipeInstance, RecipeInstance['id']>;
-  addRecipe: Sequelize.HasManyAddAssociationMixin<RecipeInstance, RecipeInstance['id']>;
-  createRecipe: Sequelize.HasManyCreateAssociationMixin<RecipeAttributes, RecipeInstance>;
-  removeRecipe: Sequelize.HasManyRemoveAssociationMixin<RecipeInstance, RecipeInstance['id']>;
-  removeRecipes: Sequelize.HasManyRemoveAssociationsMixin<RecipeInstance, RecipeInstance['id']>;
-  hasRecipe: Sequelize.HasManyHasAssociationMixin<RecipeInstance, RecipeInstance['id']>;
-  hasRecipes: Sequelize.HasManyHasAssociationsMixin<RecipeInstance, RecipeInstance['id']>;
-  countRecipes: Sequelize.HasManyCountAssociationsMixin;
 }
 
 export const UserFactory = (sequelize: Sequelize.Sequelize, DataTypes: Sequelize.DataTypes): Sequelize.Model<UserInstance, UserAttributes> => {
@@ -41,7 +31,7 @@ export const UserFactory = (sequelize: Sequelize.Sequelize, DataTypes: Sequelize
   });
 
   User.associate = models => {
-    User.hasMany(models.Recipe);
+    User.hasMany(models.UsersRecipes);
   };
 
   return User;

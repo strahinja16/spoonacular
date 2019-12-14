@@ -3,6 +3,7 @@ import Sequelize from 'sequelize';
 import { DbInterface } from '../../src/services/sequelize';
 import { UserFactory } from './user';
 import { RecipeFactory } from './recipe';
+import { UsersRecipesFactory } from './users-recipes';
 
 const host = process.env.HOST;
 const user = process.env.DB_USER;
@@ -16,7 +17,8 @@ export const createModels = (): DbInterface => {
     sequelize,
     Sequelize,
     Recipe: RecipeFactory(sequelize, Sequelize),
-    User: UserFactory(sequelize, Sequelize)
+    User: UserFactory(sequelize, Sequelize),
+    UsersRecipes: UsersRecipesFactory(sequelize, Sequelize)
   };
 
   Object.keys(db).forEach(modelName => {
