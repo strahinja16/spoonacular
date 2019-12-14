@@ -1,9 +1,12 @@
+import { faThumbsDown } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { FC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { RecipeDto } from '../../models/RecipeDto';
 import { removeProfileRecipeStart } from '../../store/profile/action-creators';
 import { AppState } from '../../store/reducer';
+import './styles.scss';
 
 export interface ProfileRecipeProps {
   recipe: RecipeDto;
@@ -30,11 +33,19 @@ const ProfileRecipe: FC<ProfileRecipeProps> = ({ recipe }) => {
 
   return (
     <section className="profileRecipeSection">
-      <img className="recipeImg" src={recipe.image} />
-      <div className="recipeInfo">
-        <div>{recipe.title}</div>
-        <button onClick={onDetailedInfoClick}>Detailed preparation instructions</button>
-        <button onClick={onRemoveFromFavorites}>Remove from favorites</button>
+      <section className="infoSection">
+        <img className="recipeImg" src={recipe.image} />
+        <div className="recipeInfo">
+          <div className="recipeTitle">
+            <div>{recipe.title}</div>
+          </div>
+        </div>
+      </section>
+      <button className="instructions" onClick={onDetailedInfoClick}>
+        Detailed preparation instructions
+      </button>
+      <div onClick={onRemoveFromFavorites} className="likeRecipe">
+        <FontAwesomeIcon icon={faThumbsDown} className="likeThumbs" />
       </div>
     </section>
   );

@@ -1,6 +1,6 @@
-@import './../../ui';
+@import '../../ui';
 
-.recipeBulkSection {
+.profileRecipeSection {
   margin: 10px;
   border: 1px solid lightgray;
   box-shadow: 0 4px 10px -2px lightgray;
@@ -8,6 +8,31 @@
 
   button {
     width: 100%;
+  }
+
+  .infoSection {
+    background-color: $light;
+    .recipeImg {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+
+    .recipeInfo {
+      .recipeTitle {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        height: 75px;
+
+        padding: 5px 10px;
+        text-align: center;
+
+        border: 1px solid lightgray;
+        border-top: none;
+      }
+    }
   }
 
   .instructions {
