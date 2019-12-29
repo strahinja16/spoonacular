@@ -34,6 +34,9 @@ const Header: FC = () => {
       <NavLink className="navLink" to="/profile">
         Profile
       </NavLink>
+      <NavLink className="navLink" to="/search-by-nutrients">
+        Search by nutrients
+      </NavLink>
       <NavLink className="navLink" to="/search">
         Search
       </NavLink>

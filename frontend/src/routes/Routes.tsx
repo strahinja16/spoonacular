@@ -35,6 +35,13 @@ const LoggedInRouteList: FC = () => (
     />
     <Route
       exact={true}
+      path="/search-by-nutrients"
+      component={dynamicImport(() =>
+        import('../pages/NutritionSearchRecipes/NutritionSearchRecipes')
+      )}
+    />
+    <Route
+      exact={true}
       path="/queried-recipes"
       component={dynamicImport(() => import('../pages/QueriedRecipes/QueriedRecipes'))}
     />
